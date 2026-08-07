@@ -50,7 +50,7 @@ export const siteConfig = {
 
   // ── サイト・SEO関連 ───────────────────────────────────────────
   /** 本番公開URL（TODO: 独自ドメイン取得後に差し替え） */
-  siteUrl: "https://example.com",
+  siteUrl: "https://housecleaning-lp.vercel.app",
   /** SEOで狙うメイン地域名（後から差し替え可能） */
   seoAreaName: "東京都",
   /** SNS等（未運用の場合は空文字のままでOK） */
