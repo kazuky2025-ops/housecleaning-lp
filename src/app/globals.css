@@ -1,0 +1,103 @@
+@import "tailwindcss";
+
+:root {
+  /* ブランドカラー: 深いティール(信頼・清潔) */
+  --color-brand: #123c40;
+  --color-brand-dark: #0a2528;
+  --color-brand-light: #e8f2f0;
+
+  /* アクセントカラー: 上質感を添えるゴールド（使用は控えめに） */
+  --color-accent: #b8925a;
+  --color-accent-light: #f6efe2;
+
+  /* ナチュラルカラー: 優しさ・自然由来の安心感を伝える差し色 */
+  --color-natural: #7d9d80;
+  --color-natural-light: #eef3ec;
+
+  /* LINEブランドカラー（LINEボタンのみ使用） */
+  --color-line: #06c755;
+  --color-line-dark: #05a648;
+
+  /* ベース・テキストカラー */
+  --color-ink: #22292c;
+  --color-ink-soft: #545e60;
+  --color-paper: #ffffff;
+  --color-mist: #f7f9f8;
+  --color-mist-dark: #eef2f1;
+  --color-border: #e3e9e7;
+
+  --background: var(--color-paper);
+  --foreground: var(--color-ink);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+  --color-brand: var(--color-brand);
+  --color-brand-dark: var(--color-brand-dark);
+  --color-brand-light: var(--color-brand-light);
+
+  --color-accent: var(--color-accent);
+  --color-accent-light: var(--color-accent-light);
+
+  --color-natural: var(--color-natural);
+  --color-natural-light: var(--color-natural-light);
+
+  --color-line: var(--color-line);
+  --color-line-dark: var(--color-line-dark);
+
+  --color-ink: var(--color-ink);
+  --color-ink-soft: var(--color-ink-soft);
+  --color-paper: var(--color-paper);
+  --color-mist: var(--color-mist);
+  --color-mist-dark: var(--color-mist-dark);
+  --color-border: var(--color-border);
+
+  --font-sans: var(--font-noto-sans-jp);
+  --font-serif: var(--font-shippori-mincho);
+
+  --animate-fade-up: fade-up 0.7s ease-out both;
+  --animate-fade-in: fade-in 0.7s ease-out both;
+
+  @keyframes fade-up {
+    from {
+      opacity: 0;
+      transform: translateY(16px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-feature-settings: "palt" 1;
+}
+
+/* 電話番号などのリンクも装飾なしの通常テキストに見せたい場合の共通クラス */
+.link-plain {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* スクロール時のヘッダー固定オフセット（アンカーリンク用） */
+html {
+  scroll-padding-top: 4.5rem;
+}
+
+::selection {
+  background-color: var(--color-brand);
+  color: var(--color-paper);
+}
