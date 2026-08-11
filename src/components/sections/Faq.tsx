@@ -14,7 +14,7 @@ export default function Faq() {
     >
       <div className="mx-auto max-w-2xl divide-y divide-border overflow-hidden rounded-2xl border border-border bg-paper">
         {faqItems.map((item) => (
-          <details key={item.question} className="group p-5 sm:p-6 open:bg-brand-light/40">
+          <details key={item.question} className="group p-4 sm:p-5 open:bg-brand-light/40">
             <summary className="flex cursor-pointer list-none items-start justify-between gap-4 text-sm sm:text-base font-bold text-ink marker:content-none">
               <span className="flex gap-2">
                 <span className="text-brand">Q.</span>

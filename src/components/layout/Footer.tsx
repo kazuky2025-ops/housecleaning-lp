@@ -16,8 +16,8 @@ const navLinks = [
 export default function Footer() {
   return (
     <footer className="bg-brand-dark text-paper/80">
-      <Container className="py-14">
-        <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
+      <Container className="py-11">
+        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
           <div>
             <Logo onBrand className="mb-4" />
             <p className="text-xs font-medium text-accent-light">{siteConfig.brandConcept}</p>
@@ -62,7 +62,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-12 border-t border-paper/15 pt-6 text-center text-xs text-paper/60">
+        <div className="mt-9 border-t border-paper/15 pt-5 text-center text-xs text-paper/60">
           © {new Date().getFullYear()} {siteConfig.operator}
         </div>
       </Container>

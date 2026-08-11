@@ -15,7 +15,7 @@ export default function OtherServices() {
     >
       <div className="mx-auto max-w-2xl divide-y divide-border overflow-hidden rounded-2xl border border-border bg-mist">
         {otherServices.map((service) => (
-          <details key={service.slug} className="group p-5 sm:p-6 open:bg-paper">
+          <details key={service.slug} className="group p-4 sm:p-5 open:bg-paper">
             <summary className="flex cursor-pointer list-none items-center gap-4 marker:content-none">
               <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-brand-light text-brand">
                 <Icon name={service.icon} className="h-5 w-5" strokeWidth={1.75} />
@@ -36,7 +36,7 @@ export default function OtherServices() {
               </span>
             </summary>
 
-            <div className="mt-5 grid gap-4 border-t border-border pt-5 sm:grid-cols-3">
+            <div className="mt-4 grid gap-4 border-t border-border pt-4 sm:grid-cols-3">
               <div>
                 <p className="text-xs font-semibold text-ink-soft">料金</p>
                 <p className="mt-1 text-2xl font-bold text-brand">

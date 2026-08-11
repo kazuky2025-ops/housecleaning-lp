@@ -11,7 +11,7 @@ export default function BeforeAfter() {
       title="ビフォーアフター"
       lead="実際の作業事例の一部をご紹介します。分解洗浄でここまできれいになります。"
     >
-      <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
         {beforeAfterItems.map((item) => (
           <div key={item.id} className="overflow-hidden rounded-2xl border border-border bg-paper">
             <div className="grid grid-cols-2">
@@ -43,7 +43,7 @@ export default function BeforeAfter() {
                 </span>
               </div>
             </div>
-            <div className="p-5">
+            <div className="p-4">
               <p className="text-xs font-semibold text-brand">{item.service}</p>
               <h3 className="mt-1 text-sm font-bold text-ink">{item.title}</h3>
               {item.comment && (

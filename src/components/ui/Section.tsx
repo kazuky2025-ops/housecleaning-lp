@@ -28,13 +28,13 @@ export default function Section({
 }: SectionProps) {
   const isOnBrand = tone === "brand";
   return (
-    <section id={id} className={`${toneClasses[tone]} py-16 sm:py-24 scroll-mt-20 ${className}`}>
+    <section id={id} className={`${toneClasses[tone]} py-12 sm:py-18 scroll-mt-20 ${className}`}>
       <Container>
         {(eyebrow || title) && (
-          <div className="mb-10 sm:mb-14 text-center">
+          <div className="mb-8 sm:mb-10 text-center">
             {eyebrow && (
               <p
-                className={`text-xs sm:text-sm font-semibold tracking-[0.2em] uppercase mb-3 ${
+                className={`text-xs sm:text-sm font-semibold tracking-[0.2em] uppercase mb-2 ${
                   isOnBrand ? "text-accent-light" : "text-brand"
                 }`}
               >
@@ -48,7 +48,7 @@ export default function Section({
             )}
             {lead && (
               <p
-                className={`mt-4 text-sm sm:text-base leading-relaxed max-w-2xl mx-auto ${
+                className={`mt-3 text-sm sm:text-base leading-relaxed max-w-2xl mx-auto ${
                   isOnBrand ? "text-paper/85" : "text-ink-soft"
                 }`}
               >

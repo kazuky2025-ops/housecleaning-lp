@@ -9,19 +9,20 @@
 
 export const siteConfig = {
   /** 屋号（表示名） */
-  brandName: "おそうじの右腕",
+  brandName: "東京おうちミガキ",
   /**
    * ロゴ画像のパス（public配下）。空文字の間はテキストロゴ（アイコン＋屋号）が
    * 自動表示されます。ロゴ画像が用意できたら public/images/logo/ に配置し、
    * ここにパスを入れるだけで全ページのロゴが画像に切り替わります。
-   * ヘッダー：背景透過版／フッター：白背景版を使い分けています。
+   * ヘッダー：白背景用（濃紺＋青緑アクセント）／フッター：暗背景用
+   * （白〜アイボリー＋青緑アクセント）を使い分けています。
    */
-  logoImage: "/images/logo/osouji-no-migiude-logo.png",
-  logoImageFooter: "/images/logo/osouji-no-migiude-logo-white-bg.png",
+  logoImage: "/images/logo/tokyo-ouchi-migaki-logo-header.png",
+  logoImageFooter: "/images/logo/tokyo-ouchi-migaki-logo-footer.png",
   /** ブランドコンセプト（タグライン） */
-  brandConcept: "忙しい毎日に、頼れる右腕。",
+  brandConcept: "暮らしを磨く、プロの技。",
   /** キャッチコピー（ファーストビュー用） */
-  catchCopy: "忙しい毎日に、\n頼れる右腕。",
+  catchCopy: "暮らしを磨く、\nプロの技。",
   /** サブキャッチ（ファーストビュー用） */
   subCopy:
     "東京都全域対応のハウスクリーニング専門店。\nエアコン・浴室・レンジフード・トイレをプロが丁寧にクリーニング。",
@@ -60,7 +61,7 @@ export const siteConfig = {
   },
 
   /** 運営者情報 */
-  operator: "おそうじの右腕",
+  operator: "東京おうちミガキ",
   /** 創業・実績年数などのアピール文言 */
   establishedYear: 2024,
 } as const;

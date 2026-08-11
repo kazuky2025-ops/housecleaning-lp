@@ -11,11 +11,11 @@ export default function Testimonials() {
       title="お客様の声"
       lead="ご依頼いただいたお客様から嬉しいお声をいただいています。"
     >
-      <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {testimonials.map((testimonial) => (
           <div
             key={testimonial.id}
-            className="flex flex-col rounded-2xl border border-border bg-mist p-6"
+            className="flex flex-col rounded-2xl border border-border bg-mist p-5"
           >
             <div className="flex items-center gap-0.5">
               {Array.from({ length: 5 }).map((_, i) => (
@@ -29,10 +29,10 @@ export default function Testimonials() {
                 />
               ))}
             </div>
-            <p className="mt-3 flex-1 text-sm leading-relaxed text-ink">
+            <p className="mt-2.5 flex-1 text-sm leading-relaxed text-ink">
               &ldquo;{testimonial.comment}&rdquo;
             </p>
-            <div className="mt-4 flex items-center justify-between border-t border-border pt-3">
+            <div className="mt-3 flex items-center justify-between border-t border-border pt-2.5">
               <div>
                 <p className="text-xs font-bold text-ink">{testimonial.name}</p>
                 <p className="text-[11px] text-ink-soft">{testimonial.attribute}</p>

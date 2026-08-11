@@ -11,11 +11,11 @@ export default function Reasons() {
       title="選ばれる理由"
       lead="はじめてハウスクリーニングをご依頼される方にも、安心してお任せいただけるように。"
     >
-      <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {reasons.map((reason) => (
           <div
             key={reason.title}
-            className={`rounded-2xl p-6 sm:p-7 shadow-[0_2px_16px_-4px_rgba(10,37,40,0.08)] border ${
+            className={`rounded-2xl p-5 sm:p-6 shadow-[0_2px_16px_-4px_rgba(10,37,40,0.08)] border ${
               reason.highlight
                 ? "bg-natural-light border-natural/30"
                 : "bg-paper border-border/60"
@@ -28,8 +28,8 @@ export default function Reasons() {
             >
               <Icon name={reason.icon} className="h-5 w-5" strokeWidth={1.75} />
             </div>
-            <h3 className="mt-4 text-base font-bold text-ink">{reason.title}</h3>
-            <p className="mt-2 text-sm leading-relaxed text-ink-soft">
+            <h3 className="mt-3 text-base font-bold text-ink">{reason.title}</h3>
+            <p className="mt-1.5 text-sm leading-relaxed text-ink-soft">
               {reason.description}
             </p>
           </div>

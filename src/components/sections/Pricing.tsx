@@ -25,11 +25,11 @@ export default function Pricing() {
       title="エアコンクリーニング料金"
       lead={aircon?.description}
     >
-      <div className="mx-auto grid max-w-3xl gap-5 sm:grid-cols-2">
+      <div className="mx-auto grid max-w-3xl gap-4 sm:grid-cols-2">
         {airconPricing.map((plan) => (
           <div
             key={plan.id}
-            className={`relative rounded-3xl border bg-paper p-6 sm:p-8 text-center ${
+            className={`relative rounded-3xl border bg-paper p-6 sm:p-7 text-center ${
               plan.isPopular
                 ? "border-brand shadow-[0_12px_32px_-14px_rgba(18,60,64,0.4)]"
                 : "border-border"
@@ -53,7 +53,7 @@ export default function Pricing() {
         ))}
       </div>
 
-      <div className="mx-auto mt-5 flex max-w-3xl items-center justify-center gap-3 rounded-2xl border border-dashed border-brand/30 bg-brand-light/50 p-4 sm:p-5">
+      <div className="mx-auto mt-4 flex max-w-3xl items-center justify-center gap-3 rounded-2xl border border-dashed border-brand/30 bg-brand-light/50 p-4 sm:p-5">
         <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-paper text-brand">
           <Icon name="spray" className="h-4 w-4" strokeWidth={1.75} />
         </span>
@@ -66,7 +66,7 @@ export default function Pricing() {
         </p>
       </div>
 
-      <div className="mx-auto mt-3 max-w-3xl rounded-2xl border border-dashed border-natural/40 bg-natural-light p-4 sm:p-5">
+      <div className="mx-auto mt-3 max-w-3xl rounded-2xl border border-dashed border-natural/40 bg-natural-light p-4">
         <div className="flex items-start gap-3">
           <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-natural text-paper">
             <Icon name="leaf" className="h-4 w-4" strokeWidth={1.75} />
@@ -90,15 +90,15 @@ export default function Pricing() {
         </div>
       </div>
 
-      <div className="mx-auto mt-12 max-w-3xl">
+      <div className="mx-auto mt-9 max-w-3xl">
         <p className="text-center text-xs font-semibold tracking-[0.2em] text-accent uppercase">
           Set Discount
         </p>
-        <h3 className="mt-2 text-center font-serif text-xl sm:text-2xl font-semibold text-ink">
+        <h3 className="mt-1.5 text-center font-serif text-xl sm:text-2xl font-semibold text-ink">
           お得なセット割
         </h3>
 
-        <div className="mt-6 grid gap-4 sm:grid-cols-3">
+        <div className="mt-5 grid gap-4 sm:grid-cols-3">
           {setDiscounts.map((plan) => (
             <div
               key={plan.id}
@@ -128,18 +128,18 @@ export default function Pricing() {
         </div>
       </div>
 
-      <div className="mx-auto mt-12 max-w-3xl">
+      <div className="mx-auto mt-9 max-w-3xl">
         <p className="text-center text-xs font-semibold tracking-[0.2em] text-brand uppercase">
           Area &amp; Travel Fee
         </p>
-        <h3 className="mt-2 text-center font-serif text-xl sm:text-2xl font-semibold text-ink">
+        <h3 className="mt-1.5 text-center font-serif text-xl sm:text-2xl font-semibold text-ink">
           対応エリア・交通費
         </h3>
-        <p className="mt-3 text-center text-sm text-ink-soft">
+        <p className="mt-2 text-center text-sm text-ink-soft">
           {siteConfig.areaCoverage}対応
         </p>
 
-        <div className="mt-6 overflow-hidden rounded-2xl border border-border bg-paper">
+        <div className="mt-5 overflow-hidden rounded-2xl border border-border bg-paper">
           <ul className="divide-y divide-border">
             {travelFees.map((tier) => (
               <li
@@ -154,9 +154,9 @@ export default function Pricing() {
             ))}
           </ul>
         </div>
-        <p className="mt-3 text-center text-[11px] text-ink-soft">{travelFeeNote}</p>
+        <p className="mt-2 text-center text-[11px] text-ink-soft">{travelFeeNote}</p>
 
-        <div className="mt-4 flex items-start gap-2.5 rounded-2xl border border-border bg-mist p-4 sm:p-5">
+        <div className="mt-3 flex items-start gap-2.5 rounded-2xl border border-border bg-mist p-4 sm:p-5">
           <Icon name="car" className="mt-0.5 h-4 w-4 shrink-0 text-brand" strokeWidth={1.75} />
           <p className="text-xs leading-relaxed text-ink-soft">
             <span className="font-bold text-ink">駐車料金：</span>
@@ -165,15 +165,15 @@ export default function Pricing() {
         </div>
       </div>
 
-      <div className="mx-auto mt-12 max-w-3xl">
+      <div className="mx-auto mt-9 max-w-3xl">
         <p className="text-center text-xs font-semibold tracking-[0.2em] text-brand uppercase">
           Peace of Mind
         </p>
-        <h3 className="mt-2 text-center font-serif text-xl sm:text-2xl font-semibold text-ink">
+        <h3 className="mt-1.5 text-center font-serif text-xl sm:text-2xl font-semibold text-ink">
           安心ポイント
         </h3>
 
-        <ul className="mt-6 grid gap-3 sm:grid-cols-2">
+        <ul className="mt-5 grid gap-2.5 sm:grid-cols-2">
           {trustPoints.map((point) => (
             <li
               key={point}
@@ -186,7 +186,7 @@ export default function Pricing() {
         </ul>
       </div>
 
-      <ul className="mx-auto mt-10 max-w-3xl space-y-2">
+      <ul className="mx-auto mt-7 max-w-3xl space-y-1.5">
         {pricingNotes.map((note) => (
           <li key={note} className="flex items-start gap-2 text-xs leading-relaxed text-ink-soft">
             <Icon name="check" className="mt-0.5 h-3.5 w-3.5 shrink-0 text-brand" strokeWidth={2} />

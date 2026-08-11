@@ -3,15 +3,22 @@ import { siteConfig } from "@/data/siteConfig";
 import Icon from "./Icon";
 
 type LogoProps = {
-  /** onBrand: フッター（白背景ロゴ・80px）で使う場合はtrue。未指定はヘッダー（透過ロゴ・56px）。 */
+  /** onBrand: フッター（暗背景用・白〜アイボリー配色）で使う場合はtrue。未指定はヘッダー（白背景用・濃紺配色）。 */
   onBrand?: boolean;
   className?: string;
 };
 
 /**
  * サイト共通のロゴ表示。
- * ヘッダーは siteConfig.logoImage（背景透過版・高さ56px）、
- * フッターは siteConfig.logoImageFooter（白背景版・高さ80px・中央配置）を表示します。
+ * ヘッダーは siteConfig.logoImage（白背景用・マスターの濃紺＋水色配色をそのまま維持）、
+ * フッターは siteConfig.logoImageFooter（暗背景用・濃紺部分のみ白〜アイボリーへ
+ * 再着色し、水色の噴射・泡はブランドカラーのまま維持・中央配置）を表示します。
+ * どちらも public/images/logo/tokyo-ouchi-migaki-logo-master.png を原本として、
+ * 周囲の透明余白のみトリミングしたもの（横1291×縦634px／比率約2.04:1、
+ * ヘッダー・フッターで共通）で、家・高圧洗浄ガン・噴射・泡・輝き・文字の形状と
+ * 縦横比は一切変更していません。
+ * 高さをブレークポイントごとに指定し、幅はaspect比から自動計算（w-auto）することで、
+ * 引き伸ばし・比率崩れを防いでいます。
  * どちらも空文字の間はアイコン＋屋号のテキストロゴにフォールバックします。
  */
 export default function Logo({ onBrand = false, className = "" }: LogoProps) {
@@ -23,10 +30,10 @@ export default function Logo({ onBrand = false, className = "" }: LogoProps) {
         <Image
           src={src}
           alt={siteConfig.brandName}
-          width={512}
-          height={512}
-          sizes={onBrand ? "240px" : "190px"}
-          className={`w-auto object-contain ${onBrand ? "h-[80px]" : "h-14"}`}
+          width={1291}
+          height={634}
+          sizes={onBrand ? "(min-width: 640px) 196px, 163px" : "130px"}
+          className={`w-auto object-contain ${onBrand ? "h-20 sm:h-24" : "h-16"}`}
           priority={!onBrand}
         />
       </span>
