@@ -1,6 +1,7 @@
 import { siteConfig } from "@/data/siteConfig";
 import { faqItems } from "@/data/faq";
 import { services } from "@/data/services";
+import type { BlogPostMeta } from "@/types/blog";
 
 /**
  * LocalBusiness（MEO対策）向け構造化データ
@@ -45,3 +46,40 @@ export const faqJsonLd = {
     },
   })),
 };
+
+/**
+ * ブログ記事向け BlogPosting 構造化データ。
+ * サムネイル未設定の記事は、記事ごとに自動生成されるOGP画像を image として使います。
+ */
+export function blogPostingJsonLd(post: BlogPostMeta) {
+  const url = `${siteConfig.siteUrl}/blog/${post.slug}`;
+  const image = post.thumbnail
+    ? `${siteConfig.siteUrl}${post.thumbnail}`
+    : `${url}/opengraph-image`;
+
+  return {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: post.title,
+    description: post.description,
+    datePublished: post.publishedAt,
+    dateModified: post.updatedAt,
+    author: {
+      "@type": "Organization",
+      name: post.author,
+    },
+    publisher: {
+      "@type": "Organization",
+      name: siteConfig.brandName,
+      logo: {
+        "@type": "ImageObject",
+        url: `${siteConfig.siteUrl}${siteConfig.logoImage}`,
+      },
+    },
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": url,
+    },
+    image,
+  };
+}

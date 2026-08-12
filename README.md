@@ -53,6 +53,7 @@ npm run lint    # ESLint
 | ビフォーアフター事例 | `src/data/beforeAfter.ts` |
 | お客様の声 | `src/data/testimonials.ts` |
 | よくある質問 | `src/data/faq.ts` |
+| ブログ記事（お役立ち記事） | `content/blog/*.md`（詳細は [content/blog/README.md](content/blog/README.md)） |
 
 例：エアコン以外のサービスを1件追加したい場合は `src/data/services.ts` の配列に
 `isMain: false` のオブジェクトを1つ追加するだけで、「その他のクリーニングサービス」の
@@ -70,6 +71,19 @@ npm run lint    # ESLint
 6. お客様の声（`Testimonials`）
 7. よくある質問（`Faq`）
 8. LINEで相談する（`Contact`）
+
+## ブログ（お役立ち記事）
+
+SEO集客向けのブログ機能を `/blog/` 以下に実装しています。記事はReactコンポーネントではなく
+`content/blog/*.md` のMarkdownファイルで管理し、ファイルを1つ追加するだけで一覧・記事ページ・
+サイトマップに自動反映されます。追加方法・frontmatterの仕様・運用ルールは
+[content/blog/README.md](content/blog/README.md) を参照してください。
+
+- `/blog/` … 記事一覧（`src/app/blog/page.tsx`）
+- `/blog/<slug>/` … 記事詳細（`src/app/blog/[slug]/page.tsx`）。記事ごとに
+  canonical・OGP・BlogPosting構造化データ・OGP画像を自動生成します
+- `src/lib/blog.ts` … Markdown読み込み・frontmatter検証・HTML変換
+- 記事のURLは `sitemap.xml` に自動追加されます（`src/app/sitemap.ts`）
 
 ## 画像の差し替え
 
@@ -93,6 +107,7 @@ npm run lint    # ESLint
 - `src/lib/jsonld.ts`：LocalBusiness（MEO向け）／FAQPage の構造化データ
 - `src/app/sitemap.ts`・`src/app/robots.ts`：サイトマップ・robots.txt
 - `src/app/opengraph-image.tsx`・`src/app/icon.tsx`：OGP画像・favicon（自動生成、画像ファイル不要）
+- `src/app/blog/`：ブログのSEO設定（記事ごとのcanonical・OGP・BlogPosting構造化データ）
 
 「エアコンクリーニング」「ハウスクリーニング」「地域名」で上位表示を狙う
 構造になっています。地域名は `siteConfig.seoAreaName` を差し替えるだけで

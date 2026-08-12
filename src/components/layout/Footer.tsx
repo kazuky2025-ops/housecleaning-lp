@@ -4,13 +4,14 @@ import Container from "@/components/ui/Container";
 import Logo from "@/components/ui/Logo";
 
 const navLinks = [
-  { href: "#reasons", label: "選ばれる理由" },
-  { href: "#pricing", label: "エアコン料金" },
-  { href: "#before-after", label: "施工事例" },
-  { href: "#other-services", label: "ハウスクリーニング" },
-  { href: "#voice", label: "お客様の声" },
-  { href: "#faq", label: "よくある質問" },
-  { href: "#contact", label: "LINE相談" },
+  { href: "/#reasons", label: "選ばれる理由" },
+  { href: "/#pricing", label: "エアコン料金" },
+  { href: "/#before-after", label: "施工事例" },
+  { href: "/#other-services", label: "ハウスクリーニング" },
+  { href: "/#voice", label: "お客様の声" },
+  { href: "/#faq", label: "よくある質問" },
+  { href: "/#contact", label: "LINE相談" },
+  { href: "/blog", label: "ブログ" },
 ];
 
 export default function Footer() {
