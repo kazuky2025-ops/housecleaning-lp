@@ -65,8 +65,18 @@ Claude Codeに続けて執筆を依頼する場合は、「`content/blog/drafts/
 
 ### 画像（アイキャッチ）の追加方法
 
-- 画像が**ない**場合: frontmatterの `thumbnail` は空のままにしてください。カテゴリに応じたブランドプレースホルダーが自動表示され、「画像未設定」であることが一目でわかる見た目になります
-- 画像が**ある**場合: `public/images/blog/` に画像ファイルを置き、frontmatterに `thumbnail: "/images/blog/ファイル名.jpg"` と書いてください。存在しないパスを書くと `npm run blog:check` がエラーで検知します
+アイキャッチ画像は `/blog/` 一覧のカード上部と、記事詳細ページ上部の両方に自動で使われます（`next/image` による `object-fit: cover` 表示で、縦横比は崩れません）。
+
+- 画像が**ない**場合: frontmatterの `image` は空のままにしてください。カテゴリに応じた濃紺のブランドプレースホルダーが自動表示され、「画像未設定」であることが一目でわかる見た目になります。**表示崩れやエラーにはなりません**
+- 画像が**ある**場合:
+  1. `public/images/blog/` に画像ファイル（`.jpg` / `.png` / `.webp` など）を置く
+  2. frontmatterに次の2行を書く
+     ```yaml
+     image: "/images/blog/ファイル名.jpg"
+     imageAlt: "エアコンクリーニング作業中の様子"
+     ```
+  3. 存在しないパスを書くと `npm run blog:check` がエラーで検知します。`imageAlt` が空の場合は警告が出ます（具体的なaltを書いてください）
+- 画像を設定すると、そのページのOGP画像（`og:image`）とBlogPosting構造化データの`image`にも同じ写真が使われます（未設定の記事は、これまでどおり記事ごとに自動生成されるブランド画像のままです）
 - 本文中に画像を追加する場合も同様に、`public/images/blog/` へ実ファイルを置いてから `![説明文](/images/blog/ファイル名.jpg)` の形式で参照してください。**altテキスト（説明文の部分）は必ず具体的に書いてください**
 - 施工事例記事でBefore/After写真を使う場合も同じ方法です。実際に提供された写真のみを使用してください
 
@@ -80,7 +90,8 @@ Claude Codeに続けて執筆を依頼する場合は、「`content/blog/drafts/
 | `updatedAt` | – | 更新日。省略時は `publishedAt` と同じ扱いになります |
 | `category` | ✅ | カテゴリ一覧のいずれか1つ |
 | `author` | – | 省略時は「東京おうちミガキ。編集部」になります |
-| `thumbnail` | – | `public/images/blog/` 配下の画像パス。空でOK（プレースホルダー表示） |
+| `image` | – | `public/images/blog/` 配下のアイキャッチ画像パス。空でOK（プレースホルダー表示） |
+| `imageAlt` | – | アイキャッチ画像のalt文。`image`を設定する場合は具体的に書いてください |
 
 `slug` はフロントマターに書きません。**ファイル名がそのままslugになります。**
 
@@ -124,7 +135,7 @@ npm run blog:check -- --skip-build       # buildとtscを省略して素早く�
 - slugの重複（公開済み・下書きをまたいだ重複も検知）
 - タイトルの完全一致・テーマの類似（地域名だけ置き換えた量産記事の検知）
 - 存在しない内部リンク（LPアンカー・他記事slug）
-- 存在しない画像ファイル（thumbnail・本文中の画像）
+- 存在しない画像ファイル（アイキャッチ`image`・本文中の画像）
 - 古いVercel URL（`housecleaning-lp`）の混入
 - LINE URLの誤り
 - 未定義の `{{token}}`

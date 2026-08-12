@@ -31,8 +31,10 @@ export type BlogPostMeta = {
   updatedAt: string;
   category: BlogCategory;
   author: string;
-  /** public配下のサムネイル画像パス。未設定ならブランドプレースホルダーを表示 */
-  thumbnail?: string;
+  /** public配下のアイキャッチ画像パス。未設定ならブランドプレースホルダーを表示 */
+  image?: string;
+  /** アイキャッチ画像のalt。未設定時は title を使用 */
+  imageAlt?: string;
 };
 
 /** 記事本文まで含んだ完全なデータ（詳細ページ用） */

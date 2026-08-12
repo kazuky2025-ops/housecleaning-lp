@@ -15,7 +15,12 @@ export default function BlogCard({ post }: { post: BlogPostMeta }) {
       className="group flex flex-col overflow-hidden rounded-2xl border border-border bg-paper transition-shadow duration-200 hover:shadow-[0_12px_32px_-16px_rgba(18,60,64,0.35)]"
     >
       <div className="relative aspect-[16/10]">
-        <BlogThumbnail thumbnail={post.thumbnail} category={post.category} alt={post.title} />
+        <BlogThumbnail
+          image={post.image}
+          imageAlt={post.imageAlt}
+          category={post.category}
+          alt={post.title}
+        />
       </div>
       <div className="flex flex-1 flex-col p-5">
         <div className="flex items-center gap-2 text-xs text-ink-soft">

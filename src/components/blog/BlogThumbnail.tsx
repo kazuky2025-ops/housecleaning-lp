@@ -3,20 +3,24 @@ import { blogCategoryMeta } from "@/data/blogCategories";
 import type { BlogCategory } from "@/types/blog";
 
 type BlogThumbnailProps = {
-  thumbnail?: string;
+  image?: string;
+  imageAlt?: string;
   category: BlogCategory;
+  /** imageAlt未設定時に使うフォールバックのalt（通常は記事タイトル） */
   alt: string;
   className?: string;
   fill?: boolean;
 };
 
 /**
- * ブログ記事のサムネイル表示。
- * thumbnail（public配下の画像パス）が未設定の間は、カテゴリに応じた
- * ブランドプレースホルダー（ImagePlaceholder）を自動表示します。
+ * ブログ記事のアイキャッチ表示。
+ * image（public配下の画像パス）が未設定の間は、カテゴリに応じた
+ * ブランドプレースホルダー（ImagePlaceholder、濃紺グラデーション）を自動表示します。
+ * 画像が設定されている場合は next/image（object-cover相当）で表示します。
  */
 export default function BlogThumbnail({
-  thumbnail,
+  image,
+  imageAlt,
   category,
   alt,
   className = "",
@@ -24,10 +28,10 @@ export default function BlogThumbnail({
 }: BlogThumbnailProps) {
   return (
     <ImagePlaceholder
-      src={thumbnail}
-      alt={alt}
+      src={image}
+      alt={imageAlt || alt}
       icon={blogCategoryMeta[category].icon}
-      label={thumbnail ? undefined : category}
+      label={image ? undefined : category}
       variant="brand"
       fill={fill}
       className={className}

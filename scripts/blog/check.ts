@@ -137,11 +137,14 @@ function main() {
       issues.push({ slug: post.slug, level: "error", message: `未知の内部リンクです: ${href}` });
     }
 
-    // 画像の存在チェック（サムネイル・本文中の画像）
-    if (meta.thumbnail) {
-      const imgPath = path.join(process.cwd(), "public", meta.thumbnail.replace(/^\//, ""));
+    // 画像の存在チェック（アイキャッチ・本文中の画像）
+    if (meta.image) {
+      const imgPath = path.join(process.cwd(), "public", meta.image.replace(/^\//, ""));
       if (!fs.existsSync(imgPath)) {
-        issues.push({ slug: post.slug, level: "error", message: `thumbnailの画像ファイルが存在しません: ${meta.thumbnail}` });
+        issues.push({ slug: post.slug, level: "error", message: `imageの画像ファイルが存在しません: ${meta.image}` });
+      }
+      if (!meta.imageAlt) {
+        issues.push({ slug: post.slug, level: "warning", message: "imageは設定されていますがimageAltが空です。具体的なalt文を設定してください" });
       }
     }
     for (const imgMatch of post.rawContent.matchAll(/!\[[^\]]*\]\(([^)\s]+)\)/g)) {

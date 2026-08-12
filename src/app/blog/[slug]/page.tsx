@@ -97,7 +97,12 @@ export default async function BlogPostPage({
         </p>
 
         <div className="relative mt-6 aspect-[16/9] overflow-hidden rounded-2xl">
-          <BlogThumbnail thumbnail={post.thumbnail} category={post.category} alt={post.title} />
+          <BlogThumbnail
+            image={post.image}
+            imageAlt={post.imageAlt}
+            category={post.category}
+            alt={post.title}
+          />
         </div>
 
         <ArticleBody html={post.htmlParts[0]} />

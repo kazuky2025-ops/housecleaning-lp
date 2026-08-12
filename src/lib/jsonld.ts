@@ -49,12 +49,12 @@ export const faqJsonLd = {
 
 /**
  * ブログ記事向け BlogPosting 構造化データ。
- * サムネイル未設定の記事は、記事ごとに自動生成されるOGP画像を image として使います。
+ * アイキャッチ画像未設定の記事は、記事ごとに自動生成されるOGP画像を image として使います。
  */
 export function blogPostingJsonLd(post: BlogPostMeta) {
   const url = `${siteConfig.siteUrl}/blog/${post.slug}`;
-  const image = post.thumbnail
-    ? `${siteConfig.siteUrl}${post.thumbnail}`
+  const image = post.image
+    ? `${siteConfig.siteUrl}${post.image}`
     : `${url}/opengraph-image`;
 
   return {

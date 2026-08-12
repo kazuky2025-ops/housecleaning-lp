@@ -58,8 +58,20 @@ export function parseMeta(slug: string, data: Record<string, unknown>): BlogPost
     updatedAt: data.updatedAt ? String(data.updatedAt) : String(data.publishedAt),
     category,
     author: data.author ? String(data.author) : "東京おうちミガキ。編集部",
-    thumbnail: data.thumbnail ? String(data.thumbnail) : undefined,
+    image: data.image ? String(data.image) : undefined,
+    imageAlt: data.imageAlt ? String(data.imageAlt) : undefined,
   };
+}
+
+/**
+ * 執筆メモなど `<!-- ... -->` のHTMLコメントを本文から除去します。
+ * remarkのCommonMark解析では複数行コメントが常にHTMLブロックとして
+ * 認識されるとは限らず、地の文として表示されてしまうことがあるため、
+ * 変換前に明示的に取り除いています（`<!-- CTA -->` は分割処理側で
+ * 既に取り除かれた後に呼ばれるため対象外）。
+ */
+function stripHtmlComments(markdown: string): string {
+  return markdown.replace(/<!--[\s\S]*?-->/g, "");
 }
 
 async function markdownToHtml(markdown: string): Promise<string> {
@@ -68,7 +80,7 @@ async function markdownToHtml(markdown: string): Promise<string> {
     .use(remarkRehype)
     .use(rehypeSlug)
     .use(rehypeStringify);
-  const result = await processor.process(markdown);
+  const result = await processor.process(stripHtmlComments(markdown));
   return String(result);
 }
 

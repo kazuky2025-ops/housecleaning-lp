@@ -127,7 +127,8 @@ async function main() {
     `updatedAt: "${today()}"`,
     `category: "${args.category}"`,
     `author: "東京おうちミガキ。編集部"`,
-    `thumbnail: ""`,
+    `image: ""`,
+    `imageAlt: ""`,
     "---",
   ].join("\n");
 
@@ -150,8 +151,11 @@ ${tokenHints}
   - 医療・健康効果を断定しない（「治る」「改善する」等は禁止）
   - 検索ボリューム等の数字を推測で書かない
   - 文字数を稼ぐための冗長な文章は禁止。検索意図を満たす長さで十分
-  - LINE CTAは本文下部に自動挿入されます。途中にも置きたい場合のみ
-    <!-- CTA --> という行を1つ追加してください
+  - LINE CTAは本文下部に自動挿入されます。途中にも置きたい場合のみ、CTAとだけ書いた
+    HTMLコメント行を1つ追加してください（書き方はcontent/blog/README.md参照）
+  - アイキャッチ画像を使う場合は public/images/blog/ に実ファイルを置き、
+    frontmatterの image に "/images/blog/ファイル名" を、imageAlt に具体的な
+    alt文を書く。画像がない間は image を空のままにする（自動でプレースホルダー表示）
   - 内部リンクは実在するURLのみ使用（LPの主な遷移先: ${anchors.join(", ")}）
   - 関連する既存記事があれば自然に内部リンクしてください:
 ${relatedPublished.length > 0 ? relatedPublished.map((p) => `      /blog/${p.slug} … 「${p.meta!.title}」`).join("\n") : "      （現在、関連付けられる公開済み記事はありません）"}
@@ -191,7 +195,7 @@ ${relatedPublished.length > 0 ? relatedPublished.map((p) => `      /blog/${p.slu
   );
   console.log(`内部リンク候補: ${suggestedAnchor}（LPの有効なアンカー: ${anchors.join(", ")}）`);
   console.log(`使用できる自社データトークン: ${Object.keys(blogFacts).length}件（src/lib/blogFacts.ts参照）`);
-  console.log(`画像設定状況: 未設定（thumbnail: ""。カテゴリのプレースホルダーが自動表示されます）`);
+  console.log(`画像設定状況: 未設定（image: ""。カテゴリのプレースホルダーが自動表示されます。画像を用意したら public/images/blog/ に置き、frontmatterのimage/imageAltに記入してください）`);
   console.log(
     `SEO事前チェック: ${similar.length > 0 ? `類似記事あり（--forceで続行）: ${similar.map((s) => s.slug).join(", ")}` : "重大な重複なし"}`
   );
