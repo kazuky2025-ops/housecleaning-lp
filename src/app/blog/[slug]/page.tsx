@@ -96,7 +96,11 @@ export default async function BlogPostPage({
           {post.description}
         </p>
 
-        <div className="relative mt-6 aspect-[16/9] overflow-hidden rounded-2xl">
+        <div
+          className={`relative mt-6 overflow-hidden rounded-2xl ${
+            post.image ? "aspect-[3/2]" : "aspect-[16/9]"
+          }`}
+        >
           <BlogThumbnail
             image={post.image}
             imageAlt={post.imageAlt}

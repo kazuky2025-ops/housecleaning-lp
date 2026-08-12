@@ -5,6 +5,8 @@ publishedAt: "2026-08-12"
 updatedAt: "2026-08-12"
 category: "エアコンクリーニング"
 author: "東京おうちミガキ。編集部"
+image: "/images/blog/aircon-cleaning-necessity-before-after.png"
+imageAlt: "エアコンクリーニング前後のエアコン内部のBefore・After比較"
 ---
 
 エアコンのニオイや効きの悪さが気になり始めると、「これって自分で掃除すればいいの？　それともプロに頼むべき？」と迷う方は多いのではないでしょうか。この記事では、自分でできるお手入れの範囲と、プロのエアコンクリーニングに依頼した方がよい目安について解説します。
