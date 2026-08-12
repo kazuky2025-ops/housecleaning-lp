@@ -5,7 +5,7 @@ import LineCtaButton from "@/components/ui/LineCtaButton";
 import Icon from "@/components/ui/Icon";
 
 const trustBadges = [
-  { icon: "car", label: "都内全域対応" },
+  { icon: "car", label: "東京西部対応" },
   { icon: "shield", label: "女性も安心" },
   { icon: "yen", label: "明朗会計" },
   { icon: "helper", label: "押し売りなし" },
