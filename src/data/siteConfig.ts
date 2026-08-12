@@ -50,8 +50,8 @@ export const siteConfig = {
     "車でお伺いします。駐車スペースがない場合のみ、近隣コインパーキング代をご負担いただきます。",
 
   // ── サイト・SEO関連 ───────────────────────────────────────────
-  /** 本番公開URL（TODO: 独自ドメイン取得後に差し替え） */
-  siteUrl: "https://housecleaning-lp.vercel.app",
+  /** 本番公開URL（独自ドメイン） */
+  siteUrl: "https://www.ouchimigaki.jp",
   /** SEOで狙うメイン地域名（後から差し替え可能） */
   seoAreaName: "西東京市",
   /** SNS等（未運用の場合は空文字のままでOK） */
