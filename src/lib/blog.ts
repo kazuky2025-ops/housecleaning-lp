@@ -8,8 +8,10 @@ import remarkRehype from "remark-rehype";
 import rehypeSlug from "rehype-slug";
 import rehypeStringify from "rehype-stringify";
 import { isBlogCategory, type BlogPost, type BlogPostMeta } from "@/types/blog";
+import { applyBlogFacts } from "@/lib/blogFacts";
 
-const BLOG_DIR = path.join(process.cwd(), "content", "blog");
+export const BLOG_DIR = path.join(process.cwd(), "content", "blog");
+export const BLOG_DRAFTS_DIR = path.join(BLOG_DIR, "drafts");
 
 /** 記事本文中でCTAを挿入したい位置に置くマーカー行 */
 const CTA_MARKER = "<!-- CTA -->";
@@ -27,7 +29,12 @@ function slugFromFile(file: string): string {
   return file.replace(/\.md$/, "");
 }
 
-function parseMeta(slug: string, data: Record<string, unknown>): BlogPostMeta {
+/**
+ * frontmatterを検証してBlogPostMetaに変換します。
+ * 必須項目の欠落・未定義categoryはここで例外を投げます
+ * （ビルド時／`npm run blog:check` の両方から共有される検証ロジックです）。
+ */
+export function parseMeta(slug: string, data: Record<string, unknown>): BlogPostMeta {
   const missing = ["title", "description", "publishedAt", "category"].filter(
     (key) => !data[key]
   );
@@ -91,8 +98,9 @@ export const getPostBySlug = cache(async (slug: string): Promise<BlogPost | null
   if (!fs.existsSync(filePath)) return null;
 
   const raw = fs.readFileSync(filePath, "utf-8");
-  const { data, content } = matter(raw);
+  const { data, content: rawContent } = matter(raw);
   const meta = parseMeta(slug, data);
+  const content = applyBlogFacts(rawContent);
 
   const ctaIndex = content
     .split("\n")

@@ -82,6 +82,10 @@ SEO集客向けのブログ機能を `/blog/` 以下に実装しています。�
 - `/blog/` … 記事一覧（`src/app/blog/page.tsx`）
 - `/blog/<slug>/` … 記事詳細（`src/app/blog/[slug]/page.tsx`）。記事ごとに
   canonical・OGP・BlogPosting構造化データ・OGP画像を自動生成します
+- `npm run blog:new` / `npm run blog:check` / `npm run blog:publish` …
+  記事の下書き作成・公開前チェック（重複記事・壊れたリンク・画像・ビルド確認）・
+  公開フォルダへの移動を行う半自動フロー（**git commit/push・本番公開は含まれません**）。
+  詳しい使い方は [content/blog/README.md](content/blog/README.md) を参照してください
 - `src/lib/blog.ts` … Markdown読み込み・frontmatter検証・HTML変換
 - 記事のURLは `sitemap.xml` に自動追加されます（`src/app/sitemap.ts`）
 

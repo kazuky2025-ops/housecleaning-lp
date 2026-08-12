@@ -41,3 +41,7 @@ yarn-error.log*
 next-env.d.ts
 
 .vercel
+
+# blog drafts: 承認前の下書き。誤ってcommitされないよう除外
+# （npm run blog:publish でここから content/blog/ へ移動してから公開してください）
+/content/blog/drafts/
