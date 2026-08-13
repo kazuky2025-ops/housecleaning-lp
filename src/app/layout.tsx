@@ -23,6 +23,8 @@ const shipporiMincho = Shippori_Mincho({
 });
 
 const pageTitle = `${siteConfig.brandName}｜${siteConfig.areaCoverage}対応のハウスクリーニング`;
+const ogpDescription =
+  "西東京市を中心に東京西部へ出張対応。エアコン・浴室・レンジフード・トイレなどのハウスクリーニング。LINEから簡単にご相談・お見積もりいただけます。";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.siteUrl),
@@ -48,12 +50,21 @@ export const metadata: Metadata = {
     url: siteConfig.siteUrl,
     siteName: siteConfig.brandName,
     title: pageTitle,
-    description: siteConfig.description,
+    description: ogpDescription,
+    images: [
+      {
+        url: "/ogp.png",
+        width: 1734,
+        height: 907,
+        alt: pageTitle,
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: pageTitle,
-    description: siteConfig.description,
+    description: ogpDescription,
+    images: ["/ogp.png"],
   },
   robots: {
     index: true,

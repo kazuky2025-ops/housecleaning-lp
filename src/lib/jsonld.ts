@@ -11,7 +11,7 @@ export const organizationJsonLd = {
   "@context": "https://schema.org",
   "@type": "HomeAndConstructionBusiness",
   name: siteConfig.brandName,
-  image: `${siteConfig.siteUrl}/opengraph-image`,
+  image: `${siteConfig.siteUrl}/ogp.png`,
   url: siteConfig.siteUrl,
   sameAs: [siteConfig.lineUrl],
   priceRange: "¥¥",
