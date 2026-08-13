@@ -8,9 +8,19 @@ import BlogThumbnail from "@/components/blog/BlogThumbnail";
 import ArticleBody from "@/components/blog/ArticleBody";
 import BlogCta from "@/components/blog/BlogCta";
 import RelatedServiceLinks from "@/components/blog/RelatedServiceLinks";
+import type { LineClickServiceName } from "@/components/ui/TrackedLineLink";
 import { getAllPostSlugs, getPostBySlug } from "@/lib/blog";
 import { blogPostingJsonLd } from "@/lib/jsonld";
 import { siteConfig } from "@/data/siteConfig";
+import type { BlogCategory } from "@/types/blog";
+
+/**
+ * カテゴリからサービスを確実に判別できる場合のみ service_name を付与します。
+ * 「水回りクリーニング」等、複数サービスにまたがるカテゴリは対象外です。
+ */
+const CATEGORY_SERVICE_NAME: Partial<Record<BlogCategory, LineClickServiceName>> = {
+  エアコンクリーニング: "aircon",
+};
 
 export async function generateStaticParams() {
   return getAllPostSlugs().map((slug) => ({ slug }));
@@ -66,6 +76,7 @@ export default async function BlogPostPage({
   if (!post) notFound();
 
   const hasMidCta = post.htmlParts.length > 1;
+  const serviceName = CATEGORY_SERVICE_NAME[post.category];
 
   return (
     <article className="bg-paper py-12 sm:py-18">
@@ -113,12 +124,12 @@ export default async function BlogPostPage({
 
         {hasMidCta && (
           <>
-            <BlogCta className="mt-10" />
+            <BlogCta className="mt-10" ctaLocation="blog_middle" serviceName={serviceName} />
             <ArticleBody html={post.htmlParts[1]} />
           </>
         )}
 
-        <BlogCta className="mt-10" />
+        <BlogCta className="mt-10" ctaLocation="blog_bottom" serviceName={serviceName} />
 
         <div className="mt-8">
           <RelatedServiceLinks />

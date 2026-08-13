@@ -1,16 +1,21 @@
 import Icon from "@/components/ui/Icon";
 import LineCtaButton from "@/components/ui/LineCtaButton";
+import type { LineClickServiceName } from "@/components/ui/TrackedLineLink";
 import { siteConfig } from "@/data/siteConfig";
 
 type BlogCtaProps = {
   className?: string;
+  /** どの位置のLINEボタンか（GA4 line_click イベントの cta_location に使用） */
+  ctaLocation: string;
+  /** 判別できる場合のみ設定するサービス名 */
+  serviceName?: LineClickServiceName;
 };
 
 /**
  * 記事本文の途中・下部で使う共通CTAブロック。
  * リンク先は siteConfig.lineUrl（LineCtaButton経由）のみを使用します。
  */
-export default function BlogCta({ className = "" }: BlogCtaProps) {
+export default function BlogCta({ className = "", ctaLocation, serviceName }: BlogCtaProps) {
   return (
     <div
       className={`rounded-3xl border border-brand/20 bg-mist p-6 text-center sm:p-8 ${className}`}
@@ -25,7 +30,7 @@ export default function BlogCta({ className = "" }: BlogCtaProps) {
         お見積り・ご相談は無料です。{siteConfig.areaCoverage}へ出張対応しております。
       </p>
       <div className="mt-4 mx-auto max-w-sm">
-        <LineCtaButton size="lg" />
+        <LineCtaButton size="lg" ctaLocation={ctaLocation} serviceName={serviceName} />
       </div>
     </div>
   );

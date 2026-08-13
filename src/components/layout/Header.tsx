@@ -1,7 +1,7 @@
 import Link from "next/link";
-import { siteConfig } from "@/data/siteConfig";
 import Icon from "@/components/ui/Icon";
 import Logo from "@/components/ui/Logo";
+import TrackedLineLink from "@/components/ui/TrackedLineLink";
 
 const navLinks = [
   { href: "/#reasons", label: "選ばれる理由" },
@@ -33,16 +33,14 @@ export default function Header() {
           ))}
         </nav>
 
-        <a
-          href={siteConfig.lineUrl}
-          target="_blank"
-          rel="noopener noreferrer"
+        <TrackedLineLink
+          ctaLocation="header"
           className="flex items-center gap-2 rounded-full bg-line px-4 py-2 text-xs sm:text-sm font-bold text-paper transition-colors hover:bg-line-dark"
         >
           <Icon name="line" className="h-4 w-4" strokeWidth={2} />
           <span className="hidden sm:inline">LINEで相談する</span>
           <span className="sm:hidden">LINE</span>
-        </a>
+        </TrackedLineLink>
       </div>
     </header>
   );

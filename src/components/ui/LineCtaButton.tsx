@@ -1,5 +1,5 @@
-import { siteConfig } from "@/data/siteConfig";
 import Icon from "./Icon";
+import TrackedLineLink, { type LineClickServiceName } from "./TrackedLineLink";
 
 export const LINE_CTA_LABEL = "LINEで無料見積もり・空き状況を確認";
 
@@ -7,6 +7,10 @@ type LineCtaButtonProps = {
   size?: "md" | "lg";
   className?: string;
   label?: string;
+  /** どの位置のLINEボタンか（GA4 line_click イベントの cta_location に使用） */
+  ctaLocation: string;
+  /** 判別できる場合のみ設定するサービス名 */
+  serviceName?: LineClickServiceName;
 };
 
 const sizeClasses: Record<NonNullable<LineCtaButtonProps["size"]>, string> = {
@@ -22,16 +26,17 @@ export default function LineCtaButton({
   size = "lg",
   className = "w-full",
   label = LINE_CTA_LABEL,
+  ctaLocation,
+  serviceName,
 }: LineCtaButtonProps) {
   return (
-    <a
-      href={siteConfig.lineUrl}
-      target="_blank"
-      rel="noopener noreferrer"
+    <TrackedLineLink
+      ctaLocation={ctaLocation}
+      serviceName={serviceName}
       className={`inline-flex items-center justify-center gap-2 rounded-full bg-line font-bold text-paper shadow-[0_10px_30px_-12px_rgba(6,199,85,0.55)] transition-transform duration-150 ease-out hover:bg-line-dark active:scale-[0.97] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand ${sizeClasses[size]} ${className}`}
     >
       <Icon name="line" className="h-5 w-5" />
       {label}
-    </a>
+    </TrackedLineLink>
   );
 }

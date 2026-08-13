@@ -30,7 +30,7 @@ export default function Contact() {
         </p>
 
         <div className="mt-5">
-          <LineCtaButton size="lg" />
+          <LineCtaButton size="lg" ctaLocation="bottom" />
         </div>
 
         <ol className="mt-6 grid grid-cols-3 gap-3 text-left">

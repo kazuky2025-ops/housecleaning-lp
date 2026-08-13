@@ -54,7 +54,7 @@ export default function Hero() {
           </div>
 
           <div className="mt-8 mx-auto max-w-sm">
-            <LineCtaButton size="lg" />
+            <LineCtaButton size="lg" ctaLocation="hero" />
           </div>
 
           <p className="mt-5 text-xs text-paper/70">
