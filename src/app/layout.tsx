@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Noto_Sans_JP, Shippori_Mincho } from "next/font/google";
 import Script from "next/script";
+import { GoogleAnalytics } from "@next/third-parties/google";
 import { siteConfig } from "@/data/siteConfig";
 import { organizationJsonLd } from "@/lib/jsonld";
 import Header from "@/components/layout/Header";
@@ -78,6 +79,8 @@ export const viewport = {
   themeColor: "#123c40",
 };
 
+const gaId = process.env.NEXT_PUBLIC_GA_ID;
+
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
@@ -95,6 +98,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
         />
       </body>
+      {gaId && <GoogleAnalytics gaId={gaId} />}
     </html>
   );
 }

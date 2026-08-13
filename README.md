@@ -117,6 +117,25 @@ SEO集客向けのブログ機能を `/blog/` 以下に実装しています。�
 構造になっています。地域名は `siteConfig.seoAreaName` を差し替えるだけで
 タイトル・description・構造化データ全体に反映されます。
 
+## アクセス解析（GA4）
+
+Google Analytics 4 は `@next/third-parties/google` の `GoogleAnalytics`
+コンポーネントを `src/app/layout.tsx` に組み込み、全ページに自動適用しています。
+
+測定ID（`G-` から始まるID）はコードに直接書かず、環境変数
+`NEXT_PUBLIC_GA_ID` から読み込む構成にしています。未設定の場合はGA4タグ自体が
+出力されない（＝ビルドエラーにも既存機能への影響にもならない）ため、安全に
+後から有効化できます。
+
+有効化する手順：
+
+1. ローカルで確認する場合は `.env.local`（gitignore済み）に以下を追記
+   ```
+   NEXT_PUBLIC_GA_ID=G-XXXXXXXXXX
+   ```
+2. 本番（Vercel）で有効化する場合は、Vercelのプロジェクト設定
+   → Environment Variables に `NEXT_PUBLIC_GA_ID` を追加し、再デプロイ
+
 ## デプロイ
 
 Vercel へのデプロイを推奨します。GitHubリポジトリと連携し、
