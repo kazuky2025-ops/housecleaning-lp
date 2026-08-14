@@ -11,7 +11,7 @@ export const organizationJsonLd = {
   "@context": "https://schema.org",
   "@type": "HomeAndConstructionBusiness",
   name: siteConfig.brandName,
-  image: `${siteConfig.siteUrl}/ogp.png`,
+  image: `${siteConfig.siteUrl}/ogp-v2.png`,
   url: siteConfig.siteUrl,
   sameAs: [siteConfig.lineUrl],
   priceRange: "¥¥",

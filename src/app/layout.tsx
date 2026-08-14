@@ -54,7 +54,7 @@ export const metadata: Metadata = {
     description: ogpDescription,
     images: [
       {
-        url: "/ogp.png",
+        url: "/ogp-v2.png",
         width: 1734,
         height: 907,
         alt: pageTitle,
@@ -65,7 +65,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: pageTitle,
     description: ogpDescription,
-    images: ["/ogp.png"],
+    images: ["/ogp-v2.png"],
   },
   robots: {
     index: true,
