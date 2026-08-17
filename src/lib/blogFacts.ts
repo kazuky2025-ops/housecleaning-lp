@@ -1,7 +1,6 @@
 import {
   airconPricing,
   airconOption,
-  detergentOption,
   travelFeeNote,
   parkingNote,
 } from "@/data/pricing";
@@ -36,7 +35,6 @@ export const blogFacts: Record<string, string> = {
   "pricing.rangeHood": yen(priceOf("range-hood")),
   "pricing.toilet": yen(priceOf("toilet")),
   "pricing.mizumawariSet": yen(priceOf("mizumawari-set")),
-  "pricing.detergentOption": yen(detergentOption.price),
   "pricing.travelFeeNote": travelFeeNote,
   "pricing.parkingNote": parkingNote,
   "area.coverage": siteConfig.areaCoverage,

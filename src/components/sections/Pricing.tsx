@@ -4,7 +4,6 @@ import {
   airconPricing,
   airconOption,
   setDiscounts,
-  detergentOption,
   travelFees,
   travelFeeNote,
   parkingNote,
@@ -64,30 +63,6 @@ export default function Pricing() {
           </span>
           <span className="ml-1 text-xs text-ink-soft">（{airconOption.description}）</span>
         </p>
-      </div>
-
-      <div className="mx-auto mt-3 max-w-3xl rounded-2xl border border-dashed border-natural/40 bg-natural-light p-4">
-        <div className="flex items-start gap-3">
-          <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-natural text-paper">
-            <Icon name="leaf" className="h-4 w-4" strokeWidth={1.75} />
-          </span>
-          <div>
-            <p className="text-sm text-ink">
-              <span className="font-bold text-ink">オプション：{detergentOption.name}</span>
-              <span className="ml-2 font-bold text-natural">
-                +{detergentOption.price.toLocaleString()}円
-              </span>
-            </p>
-            <p className="mt-1 text-xs leading-relaxed text-ink-soft">
-              {detergentOption.description}
-            </p>
-            {detergentOption.caveat && (
-              <p className="mt-2 text-[11px] leading-relaxed text-ink-soft/80">
-                ※{detergentOption.caveat}
-              </p>
-            )}
-          </div>
-        </div>
       </div>
 
       <div className="mx-auto mt-9 max-w-3xl">

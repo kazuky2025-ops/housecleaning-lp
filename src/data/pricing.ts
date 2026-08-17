@@ -29,7 +29,7 @@ export const airconPricing: PricingPlan[] = [
 export const airconOption: PricingPlan = {
   id: "outdoor-unit",
   name: "室外機洗浄",
-  price: 1100,
+  price: 2000,
   unit: "追加（税込）",
   description: "室外機まわりの汚れもまとめて洗浄します。",
 };
@@ -70,26 +70,6 @@ export const setDiscounts: PricingPlan[] = [
     badge: "5,200円お得",
   },
 ];
-
-/**
- * 洗剤オプション
- * ------------------------------------------------------------
- * 通常は汚れに応じた業務用洗剤を使用します。天然由来（ココナッツ由来）の
- * 中性洗剤への変更は追加料金制のオプションです（無料ではありません）。
- * ※ src/data/reasons.ts・src/data/faq.ts の洗剤に関する記載と金額を
- *   揃えてあります。変更する場合はあわせて更新してください。
- * ------------------------------------------------------------
- */
-export const detergentOption: PricingPlan = {
-  id: "detergent-natural",
-  name: "天然由来（ココナッツ由来）中性洗剤へ変更",
-  price: 1000,
-  unit: "追加（税込）",
-  description:
-    "小さなお子様やペットのいるご家庭、化学物質が気になる方にもおすすめです。",
-  caveat:
-    "天然由来のため、頑固な油汚れ・カビ・水アカなどは通常洗剤より洗浄力が穏やかになる場合があります。",
-};
 
 /** 対応エリアの交通費（距離帯別） */
 export const travelFees: TravelFeeTier[] = [

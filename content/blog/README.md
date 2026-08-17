@@ -54,7 +54,6 @@ Claude Codeに続けて執筆を依頼する場合は、「`content/blog/drafts/
 | `{{pricing.aircon.autoClean}}` | お掃除機能付きエアコンの料金 |
 | `{{pricing.aircon.outdoorUnit}}` | 室外機洗浄オプションの料金 |
 | `{{pricing.bathroom}}` / `{{pricing.rangeHood}}` / `{{pricing.toilet}}` / `{{pricing.mizumawariSet}}` | 各サービスの料金 |
-| `{{pricing.detergentOption}}` | 天然由来洗剤オプションの料金 |
 | `{{pricing.travelFeeNote}}` / `{{pricing.parkingNote}}` | 交通費・駐車料金の注記文 |
 | `{{area.coverage}}` | 対応エリアの表記（例: 西東京市を中心に東京西部） |
 | `{{area.servedCities}}` | 実際の対応市区町村一覧 |
